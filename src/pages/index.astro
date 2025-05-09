@@ -2,7 +2,6 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
@@ -141,7 +140,7 @@ const metadata = {
       {
         title: 'Desarrolladores de Realidad Aumentada (AR)',
         description:
-          "Experiencia previa con desarrollo de AR o VR es altamente deseable. Conocimiento de las plataformas y herramientas de desarrollo de AR.",
+          'Experiencia previa con desarrollo de AR o VR es altamente deseable. Conocimiento de las plataformas y herramientas de desarrollo de AR.',
       },
       {
         title: 'Artistas 3D y Modeladores',
@@ -154,7 +153,10 @@ const metadata = {
       alt: 'Blueprint Image',
     }}
   >
-    <Fragment slot="content">Participa de forma individual o como equipo. La hackathon estará conformada por 6 equipos de 5 profesionales multidisciplinarios. Buscamos estudiantes y profesionales con los siguientes conocimientos:</Fragment>
+    <Fragment slot="content"
+      >Participa de forma individual o como equipo. La hackathon estará conformada por 6 equipos de 5 profesionales
+      multidisciplinarios. Buscamos estudiantes y profesionales con los siguientes conocimientos:</Fragment
+    >
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
