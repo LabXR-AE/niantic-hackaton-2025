@@ -64,7 +64,6 @@ We're embarking on an exciting journey with **AstroWind 2.0**, and we want you t
 
 <br>
 
-
 ## TL;DR
 
 ```shell
@@ -148,9 +147,9 @@ Any static assets, like images, can be placed in the `public/` directory if they
 
 All commands are run from the root of the project, from a terminal:
 
-| Command             | Action                                             |
-| :------------------ | :------------------------------------------------- |
-| `bun install`       | Installs dependencies                              |
+| Command         | Action                                             |
+| :-------------- | :------------------------------------------------- |
+| `bun install`   | Installs dependencies                              |
 | `bun dev`       | Starts local dev server at `localhost:4321`        |
 | `bun build`     | Build your production site to `./dist/`            |
 | `bun preview`   | Preview your build locally, before deploying       |
