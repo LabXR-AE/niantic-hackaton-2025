@@ -1,5 +1,4 @@
 ---
-import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
 
 import type { Hero as Props } from '~/types';
@@ -18,82 +17,95 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
+<section class="relative md:mt-[76px] md: not-prose" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
   </div>
+
+  <div
+    class="absolute inset-0 z-[-1] pointer-events-none
+      opacity-80 dark:opacity-70
+      bg-gradient-to-b from-transparent to-black/20
+      dark:from-transparent dark:to-white/10
+       overflow-clip
+      intersect-once intercept-no-queue intersect-quarter
+        motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+    title="hero-image"
+  >
+    <img class="object-fill min-w-full min-h-full" loading="eager" {...image as object} />
+
+    <!-- {banner ? <Fragment set:html={banner} /> : null} -->
+  </div>
+
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-0 md:py-0">
-      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
-        {
-          tagline && (
-            <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-              set:html={tagline}
-            />
-          )
-        }
-        {
-          title && (
-            <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-              set:html={title}
-            />
-          )
-        }
-        <div class="max-w-3xl mx-auto">
+    <div class="pt-[76px] pointer-events-none"></div>
+    <div class="pt-12 md:pt-20 pb-0 md:pb-0 flex flex-col items-center">
+      <div
+        title="contents"
+        class="bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-xl shadow-lg
+          overflow-hidden
+          md:-mt-[76px] w-full"
+      >
+        <div class="text-center py-10 px-16 md:py-16 max-w-5xl mx-auto">
           {
-            subtitle && (
+            tagline && (
               <p
-                class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-                set:html={subtitle}
+                class="
+                text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase
+                intersect-once intersect-quarter
+                motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade
+              "
+                set:html={tagline}
               />
             )
           }
           {
-            actions && (
-              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-                {Array.isArray(actions) ? (
-                  actions.map((action) => (
-                    <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class="w-full sm:mb-0" />
-                    </div>
-                  ))
-                ) : (
-                  <Fragment set:html={actions} />
-                )}
-              </div>
+            title && (
+              <h1
+                class="
+                text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200
+                intersect-once intersect-quarter
+                motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade
+              "
+                set:html={title}
+              />
             )
           }
-        </div>
-        {content && <Fragment set:html={content} />}
-      </div>
-      <div
-        class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-      >
-        {
-          image && (
-            <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={1024}
-                  height={576}
-                  {...image}
+          <div class="max-w-3xl mx-auto">
+            {
+              subtitle && (
+                <p
+                  class="
+                  text-xl text-muted mb-6 dark:text-slate-300
+                  intersect-once intersect-quarter
+                  motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade
+                "
+                  set:html={subtitle}
                 />
-              )}
-            </div>
-          )
-        }
+              )
+            }
+            {
+              actions && (
+                <div class="max-w-xs sm:max-w-md m-auto flex flex-col sm:flex-row sm:justify-center gap-4">
+                  {Array.isArray(actions) ? (
+                    actions.map((action) => (
+                      <div class="flex w-full sm:w-auto">
+                        <Button {...(action || {})} class="w-full sm:mb-0" />
+                      </div>
+                    ))
+                  ) : (
+                    <Fragment set:html={actions} />
+                  )}
+                </div>
+              )
+            }
+          </div>
+          {content && <Fragment set:html={content} />}
+        </div>
       </div>
     </div>
+    <div class="pb-[120px] pointer-events-none"></div>
   </div>
 </section>

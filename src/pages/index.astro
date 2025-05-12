@@ -1,6 +1,5 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
@@ -8,8 +7,8 @@ import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Brands from '~/components/widgets/Brands.astro';
 
 const metadata = {
   title: 'Únete a la Primera Hackathon Niantic 8th Wall en Lima',
@@ -24,14 +23,14 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
+        text: 'Inscríbete',
+        href: 'https://google.com',
         target: '_blank',
         icon: 'tabler:download',
       },
-      { text: 'Learn more', href: '#features' },
+      { text: 'Conoce más', href: '#features' },
     ]}
-    image={{ src: '~/assets/images/Niantic-8thWall.jpg', alt: 'Niantic 8th Wall' }}
+    image={{ src: 'src/assets/images/Niantic-8thWall.jpg', alt: 'Niantic 8th Wall' }}
   >
     <Fragment slot="title">
       Impulsa tu Carrera XR en la Primera Hackathon
