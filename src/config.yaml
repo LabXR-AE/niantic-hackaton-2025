@@ -11,14 +11,14 @@ metadata:
   title:
     default: Hackaton AR
     template: '%s — Hackaton AR'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+  description: "\U0001F680 Impulsa tu Carrera XR en la Primera Hackathon Niantic 8th Wall en Lima."
   robots:
     index: true
     follow: true
   openGraph:
     site_name: Hackaton AR
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/Niantic-8thWall.jpg'
         width: 1200
         height: 628
     type: website

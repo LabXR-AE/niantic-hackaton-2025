@@ -6,7 +6,6 @@ import Grid from '~/components/blog/Grid.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Post, Widget } from '~/types';
 
-
 export interface Props extends Widget {
   title?: string;
   linkText?: string;
@@ -25,7 +24,32 @@ const {
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
 
-const posts: Post[] = [];
+const posts: Post[] = [
+  {
+    title: 'Crear un proyecto',
+    id: '1',
+    slug: 'Start you journey',
+    image: '~/assets/images/studio-template-picker-f02f976e807aac1da28382d1d0ba1622.png',
+    publishDate: new Date(),
+    permalink: 'https://www.8thwall.com/docs/es/studio/getting-started/create-project/',
+  },
+  {
+    title: 'Espacios',
+    id: '2',
+    slug: 'Creat un espacio',
+    image: '~/assets/images/spaces-intro-acc81057a1bf46548b62131c6ceecc88.gif',
+    publishDate: new Date(),
+    permalink: 'https://www.8thwall.com/docs/es/studio/essentials/spaces/',
+  },
+  {
+    title: 'Animaciones',
+    id: '3',
+    slug: 'Agrégale animaciones',
+    publishDate: new Date(),
+    image: '~/assets/images/animation-component-7d5a879a5ce9a86649efa89a9bdda63d.png',
+    permalink: 'https://www.8thwall.com/docs/es/studio/guides/animation/',
+  },
+];
 ---
 
 {
