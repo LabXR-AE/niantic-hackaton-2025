@@ -1,6 +1,6 @@
 ---
 import Button from '~/components/ui/Button.astro';
-
+import Image from '~/components/common/Image.astro';
 import type { Hero as Props } from '~/types';
 
 const {
@@ -29,12 +29,21 @@ const {
       opacity-80 dark:opacity-70
       bg-gradient-to-b from-transparent to-black/20
       dark:from-transparent dark:to-white/10
-       overflow-clip
+      overflow-clip
       intersect-once intercept-no-queue intersect-quarter
         motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
     title="hero-image"
   >
-    <img class="object-fill min-w-full min-h-full" loading="eager" {...image as object} />
+    <Image
+      widths={[400, 768, 1024, 2040]}
+      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+      loading="eager"
+      width={1024}
+      height={576}
+      class="object-fill min-w-full min-h-full"
+      loading="eager"
+      {...image as object}
+    />
 
     <!-- {banner ? <Fragment set:html={banner} /> : null} -->
   </div>
